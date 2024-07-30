@@ -3,7 +3,7 @@ import Markdown
 
 extension Renderer {
     func visitSoftBreak(_ softBreak: SoftBreak) -> Result {
-        Result(SwiftUI.Text(" "))
+        Result(SwiftUI.Text("\n"))
     }
     
     func visitThematicBreak(_ thematicBreak: ThematicBreak) -> Result {
