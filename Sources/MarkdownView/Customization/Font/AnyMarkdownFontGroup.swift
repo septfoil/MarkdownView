@@ -13,6 +13,8 @@ public struct AnyMarkdownFontGroup {
     var _tableHeader: Font
     var _tableBody: Font
     var _body: Font
+    var _bold: Font
+    var _emphasis: Font
     
     init(_ group: some MarkdownFontGroup) {
         _h1 = group.h1
@@ -26,6 +28,8 @@ public struct AnyMarkdownFontGroup {
         _tableHeader = group.tableHeader
         _tableBody = group.tableBody
         _body = group.body
+        _bold = group.bold
+        _emphasis = group.emphasis
     }
 }
 
@@ -41,6 +45,8 @@ extension AnyMarkdownFontGroup: MarkdownFontGroup {
     public var tableHeader: Font { _tableHeader }
     public var tableBody: Font { _tableBody }
     public var body: Font { _body }
+    public var bold: Font { _bold }
+    public var emphasis: Font { _emphasis }
 }
 
 extension AnyMarkdownFontGroup: Equatable { }

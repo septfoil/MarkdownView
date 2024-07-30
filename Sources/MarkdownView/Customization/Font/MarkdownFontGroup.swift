@@ -22,6 +22,9 @@ public protocol MarkdownFontGroup {
     // Tables
     var tableHeader: Font { get }
     var tableBody: Font { get }
+    
+    var bold: Font { get }
+    var emphasis: Font { get }
 }
 
 extension MarkdownFontGroup {
@@ -42,4 +45,7 @@ extension MarkdownFontGroup {
     // Tables
     public var tableHeader: Font { Font.headline }
     public var tableBody: Font { Font.body }
+    
+    public var bold: Font { Font.body.bold() }
+    public var emphasis: Font { Font.body.italic() }
 }

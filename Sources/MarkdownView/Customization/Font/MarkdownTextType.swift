@@ -5,4 +5,5 @@ public enum MarkdownTextType: Equatable, CaseIterable {
     case body
     case codeBlock,blockQuote
     case tableHeader,tableBody
+    case bold, emphasis
 }

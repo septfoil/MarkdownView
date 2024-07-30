@@ -30,6 +30,8 @@ public extension View {
             case .codeBlock: group._codeBlock = font
             case .tableBody: group._tableBody = font
             case .tableHeader: group._tableHeader = font
+            case .bold: group._bold = font
+            case .emphasis: group._emphasis = font
             }
         }
     }
