@@ -28,9 +28,8 @@ struct HighlightedCodeBlock: View {
             }
         }
         .task(id: id, highlight)
-        .lineSpacing(5)
         .font(font.codeBlock)
-        .padding()
+        .padding(8)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(.quaternary.opacity(0.5), in: RoundedRectangle(cornerRadius: 8))
         .gesture(
@@ -44,9 +43,9 @@ struct HighlightedCodeBlock: View {
                     .transition(.opacity.animation(.easeInOut))
             }
         }
-        .overlay(alignment: .bottomTrailing) {
-            codeLanguage
-        }
+//        .overlay(alignment: .bottomTrailing) {
+//            codeLanguage
+//        }
         .onHover { showCopyButton = $0 }
     }
     
