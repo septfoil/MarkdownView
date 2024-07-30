@@ -18,6 +18,7 @@ struct LinkAttributer: MarkupVisitor {
     func visitText(_ text: Markdown.Text) -> Result {
         var attributedString = Result(stringLiteral: text.plainText)
         attributedString.font = font
+        attributedString.foregroundColor = tint
         return attributedString
     }
     
@@ -27,7 +28,7 @@ struct LinkAttributer: MarkupVisitor {
             attributedString.link = URL(string: destination)
         } else {
             #if os(macOS)
-            attributedString.foregroundColor = .init(tint)
+            attributedString.foregroundColor = .linkColor
             #elseif os(iOS)
             attributedString.foregroundColor = .link
             #elseif os(watchOS)
