@@ -19,13 +19,19 @@ extension Renderer {
 
 extension Renderer {
     mutating func visitCodeBlock(_ codeBlock: CodeBlock) -> Result {
-        Result {
+        var code = codeBlock.code
+        if let lastCode = code.last {
+            if lastCode.isNewline {
+                code = String(code.dropLast())
+            }
+        }
+        return Result {
             #if os(watchOS) || os(tvOS)
-            SwiftUI.Text(codeBlock.code)
+            SwiftUI.Text(code)
             #else
             HighlightedCodeBlock(
                 language: codeBlock.language,
-                code: codeBlock.code,
+                code: code,
                 theme: configuration.codeBlockTheme
             )
             #endif

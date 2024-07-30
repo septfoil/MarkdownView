@@ -63,7 +63,6 @@ struct HighlightedCodeBlock: View {
     @Sendable private func highlight() async {
         guard let highlighter = Highlightr.shared else { return }
         let language = highlighter.supportedLanguages().first(where: { $0.lowercased() == self.language?.lowercased() })
-        print("code: \(code)")
         if let highlightedCode = highlighter.highlight(code, as: language) {
             withAnimation {
                 attributedCode = AttributedString(highlightedCode)
