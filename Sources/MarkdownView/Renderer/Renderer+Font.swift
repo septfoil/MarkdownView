@@ -5,7 +5,7 @@ extension Renderer {
     mutating func visitEmphasis(_ emphasis: Markdown.Emphasis) -> Result {
         var text = [SwiftUI.Text]()
         for child in emphasis.children {
-            text.append(visit(child).text.italic())
+            text.append(visit(child).text.font(configuration.fontGroup.emphasis))
         }
         return Result(text)
     }
@@ -13,7 +13,7 @@ extension Renderer {
     mutating func visitStrong(_ strong: Strong) -> Result {
         var text = [SwiftUI.Text]()
         for child in strong.children {
-            text.append(visit(child).text.bold())
+            text.append(visit(child).text.font(configuration.fontGroup.bold))
         }
         return Result(text)
     }
