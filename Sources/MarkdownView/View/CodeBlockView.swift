@@ -90,10 +90,14 @@ struct CodeHighlighterUpdator: ViewModifier {
             .task(id: colorScheme) {
                 let theme = colorScheme == .dark ? theme.darkModeThemeName : theme.lightModeThemeName
                 Highlightr.shared?.setTheme(to: theme)
+                var the = Highlightr.shared?.theme
+                the?.setCodeFont(.init(name: "SF Mono", size: 12)!)
             }
             .onChange(of: theme) { newTheme in
                 let theme = colorScheme == .dark ? newTheme.darkModeThemeName : newTheme.lightModeThemeName
                 Highlightr.shared?.setTheme(to: theme)
+                var the = Highlightr.shared?.theme
+                the?.setCodeFont(.init(name: "SF Mono", size: 12)!)
             }
             #endif
     }
