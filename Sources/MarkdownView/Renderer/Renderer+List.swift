@@ -26,12 +26,8 @@ extension Renderer {
                 ForEach(listItems.indices, id: \.self) { index in
                     let listItem = listItems[index]
                     HStack(alignment: .firstTextBaseline) {
-                        if listItem.checkbox != nil {
-                            CheckboxView(listItem: listItem, text: rawText, handler: handler)
-                        } else {
-                            SwiftUI.Text("\(index + 1).")
-                                .padding(.leading, depth == 0 ? configuration.listIndent : 0)
-                        }
+                        SwiftUI.Text("\(index + 1).")
+                            .padding(.leading, depth == 0 ? configuration.listIndent : 0)
                         itemContent[index]
                     }
                 }
@@ -51,13 +47,9 @@ extension Renderer {
                 ForEach(itemContent.indices, id: \.self) { index in
                     let listItem = listItems[index]
                     HStack(alignment: .firstTextBaseline) {
-                        if listItem.checkbox != nil {
-                            CheckboxView(listItem: listItem, text: rawText, handler: handler)
-                        } else {
-                            SwiftUI.Text(configuration.unorderedListBullet)
-                                .font(.title2)
-                                .padding(.leading, depth == 0 ? configuration.listIndent : 0)
-                        }
+                        SwiftUI.Text(configuration.unorderedListBullet)
+                            .font(.title2)
+                            .padding(.leading, depth == 0 ? configuration.listIndent : 0)
                         itemContent[index]
                     }
                 }
