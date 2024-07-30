@@ -27,7 +27,7 @@ struct LinkAttributer: MarkupVisitor {
             attributedString.link = URL(string: destination)
         } else {
             #if os(macOS)
-            attributedString.foregroundColor = .linkColor
+            attributedString.foregroundColor = .init(tint)
             #elseif os(iOS)
             attributedString.foregroundColor = .link
             #elseif os(watchOS)

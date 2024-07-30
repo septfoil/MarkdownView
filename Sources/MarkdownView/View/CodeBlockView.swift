@@ -66,6 +66,7 @@ struct HighlightedCodeBlock: View {
         if let highlightedCode = highlighter.highlight(code, as: language) {
             withAnimation {
                 attributedCode = AttributedString(highlightedCode)
+                attributedCode?.font = font.codeBlock
             }
         }
     }
