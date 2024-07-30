@@ -15,10 +15,10 @@ struct CopyButton: View {
         Button(action: copy) {
             Group {
                 if copied {
-                    Image(systemName: "checkmark")
+                    Image("markdown-copied")
                         .transition(.opacity.combined(with: .scale))
                 } else {
-                    Image(systemName: "doc.on.clipboard")
+                    Image("markdown-copy")
                         .transition(.opacity.combined(with: .scale))
                 }
             }
@@ -28,14 +28,7 @@ struct CopyButton: View {
             .contentShape(Rectangle())
         }
         .foregroundStyle(.primary)
-        .background(
-            .quaternary.opacity(0.2),
-            in: RoundedRectangle(cornerRadius: 5, style: .continuous)
-        )
-        .overlay {
-            RoundedRectangle(cornerRadius: 5, style: .continuous)
-                .stroke(.quaternary, lineWidth: 1)
-        }
+        .contentShape(Rectangle())
         .brightness(isHovering ? 0.3 : 0)
         .buttonStyle(.borderless) // Only use `.borderless` can behave correctly when text selection is enabled.
         .onHover { isHovering = $0 }
