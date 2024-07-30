@@ -30,7 +30,7 @@ struct HighlightedCodeBlock: View {
         .task(id: id, highlight)
         .font(font.codeBlock)
         .padding(.horizontal, 12)
-        .padding(.vertical, 8)
+        .padding(.vertical, 9)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(.quaternary.opacity(0.5), in: RoundedRectangle(cornerRadius: 8))
         .gesture(
