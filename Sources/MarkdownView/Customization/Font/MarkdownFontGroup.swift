@@ -39,7 +39,7 @@ extension MarkdownFontGroup {
     public var body: Font { Font.body }
     
     // Blocks
-    public  var codeBlock: Font { Font.system(.callout, design: .monospaced) }
+    public var codeBlock: Font { Font.system(size: 12, design: .monospaced) }
     public var blockQuote: Font { Font.system(.body, design: .serif) }
     
     // Tables
