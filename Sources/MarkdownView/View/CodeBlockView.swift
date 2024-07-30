@@ -29,7 +29,8 @@ struct HighlightedCodeBlock: View {
         }
         .task(id: id, highlight)
         .font(font.codeBlock)
-        .padding(8)
+        .padding(.horizontal, 12)
+        .padding(.vertical, 8)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(.quaternary.opacity(0.5), in: RoundedRectangle(cornerRadius: 8))
         .gesture(
@@ -62,6 +63,7 @@ struct HighlightedCodeBlock: View {
     @Sendable private func highlight() async {
         guard let highlighter = Highlightr.shared else { return }
         let language = highlighter.supportedLanguages().first(where: { $0.lowercased() == self.language?.lowercased() })
+        print("code: \(code)")
         if let highlightedCode = highlighter.highlight(code, as: language) {
             withAnimation {
                 attributedCode = AttributedString(highlightedCode)
