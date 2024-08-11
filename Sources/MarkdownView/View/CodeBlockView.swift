@@ -35,10 +35,10 @@ struct HighlightedCodeBlock: View {
         .padding(.vertical, 9)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(.quaternary.opacity(0.5), in: RoundedRectangle(cornerRadius: 8))
-        .gesture(
-            TapGesture()
-                .onEnded { _ in showCopyButton.toggle() }
-        )
+//        .gesture(
+//            TapGesture()
+//                .onEnded { _ in showCopyButton.toggle() }
+//        )
         .overlay(alignment: .topTrailing) {
             if showCopyButton {
                 CopyButton(content: code)
