@@ -89,7 +89,7 @@ struct CodeHighlighterUpdator: ViewModifier {
         content
             #if canImport(Highlightr)
             .task {
-                Highlightr.shared?.theme = newTheme
+                Highlightr.shared?.theme = theme
             }
             #endif
     }
