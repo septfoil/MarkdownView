@@ -3,10 +3,10 @@
     {
       "identity" : "highlightr",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/raspu/Highlightr.git",
+      "location" : "https://github.com/septfoil/Highlightr.git",
       "state" : {
-        "revision" : "93199b9e434f04bda956a613af8f571933f9f037",
-        "version" : "2.1.2"
+        "branch" : "master",
+        "revision" : "1b3fc55ca0c0fc12012bf9baf7d337d47894db0d"
       }
     },
     {
