@@ -24,7 +24,7 @@ struct CopyButton: View {
             }
             .contentShape(Rectangle())
         }
-        .foregroundStyle(.tertiary)
+        .foregroundStyle(.secondary)
         .contentShape(Rectangle())
         .brightness(isHovering ? 0.3 : 0)
         .buttonStyle(.borderless) // Only use `.borderless` can behave correctly when text selection is enabled.
