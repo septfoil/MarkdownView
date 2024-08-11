@@ -28,7 +28,6 @@ struct HighlightedCodeBlock: View {
                 SwiftUI.Text(code)
             }
         }
-        .selectionDisabled(true)
         .allowsHitTesting(false)
         .task(id: id, highlight)
         .font(font.codeBlock)
