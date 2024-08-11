@@ -12,11 +12,12 @@ struct HighlightedCodeBlock: View {
     
     @Environment(\.fontGroup) private var font
     @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.codeTheme) private var codeTheme
     @State private var attributedCode: AttributedString?
     @State private var showCopyButton = false
     
     private var id: String {
-        "\(colorScheme) mode" + (language ?? "No Language Name") + code
+        "\(colorScheme) mode" + (codeTheme.theme) + code
     }
 
     var body: some View {
