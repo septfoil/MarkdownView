@@ -1,4 +1,5 @@
 import SwiftUI
+import Highlightr
 
 /// The theme of code highlighter.
 ///
@@ -40,10 +41,19 @@ struct CodeHighlighterThemeKey: EnvironmentKey {
     )
 }
 
+struct CodeThemeKey: EnvironmentKey {
+    static var defaultValue: Theme = Theme(themeName: "xcode")
+}
+
 extension EnvironmentValues {
     var codeHighlighterTheme: CodeHighlighterTheme {
         get { self[CodeHighlighterThemeKey.self] }
         set { self[CodeHighlighterThemeKey.self] = newValue }
+    }
+    
+    var codeTheme: Theme {
+        get { self[CodeThemeKey.self] }
+        set { self[CodeThemeKey.self] = newValue }
     }
 }
 
@@ -57,5 +67,9 @@ extension View {
     /// - note: Code highlighting is not available on watchOS.
     public func codeHighlighterTheme(_ theme: CodeHighlighterTheme) -> some View {
         environment(\.codeHighlighterTheme, theme)
+    }
+    
+    public func codeTheme(_ theme: Theme) -> some View {
+        environment(\.codeTheme, theme)
     }
 }
