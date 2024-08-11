@@ -98,7 +98,8 @@ extension Renderer {
 fileprivate struct _TableViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .scenePadding()
+            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
             .overlay {
                 RoundedRectangle(cornerRadius: 8, style: .continuous)
                     .stroke(.quaternary, lineWidth: 2)
