@@ -88,52 +88,49 @@ struct CodeHighlighterUpdator: ViewModifier {
     func body(content: Content) -> some View {
         content
             #if canImport(Highlightr)
-        Highlightr.shared?.theme = Theme(themeString: """
-            .hljs{display:block;overflow-x:auto;padding:0.5em;background:#F0F0F0}
-            .hljs,
-            .hljs-subst{color:#FF0000}
-            .hljs-comment{color:#FF0000}
-            .hljs-keyword,
-            .hljs-attribute,
-            .hljs-selector-tag,
-            .hljs-meta-keyword,
-            .hljs-doctag,
-            .hljs-name{font-weight:bold}
-            .hljs-type,
-            .hljs-string,
-            .hljs-number,
-            .hljs-selector-id,
-            .hljs-selector-class,
-            .hljs-quote,
-            .hljs-template-tag,
-            .hljs-deletion{color:#880000}
-            .hljs-title,
-            .hljs-section{color:#880000;font-weight:bold}
-            .hljs-regexp,
-            .hljs-symbol,
-            .hljs-variable,
-            .hljs-template-variable,
-            .hljs-link,
-            .hljs-selector-attr,
-            .hljs-selector-pseudo{color:#BC6060}
-            .hljs-literal{color:#78A960}
-            .hljs-built_in,
-            .hljs-bullet,
-            .hljs-code,
-            .hljs-addition{color:#397300}
-            .hljs-meta{color:#1f7199}
-            .hljs-meta-string{color:#4d99bf}
-            .hljs-emphasis{font-style:italic}
-            .hljs-strong{font-weight:bold}
-            """)
             .task(id: colorScheme) {
-                let theme = colorScheme == .dark ? theme.darkModeThemeName : theme.lightModeThemeName
-                Highlightr.shared?.setTheme(to: theme)
-                Theme(themeString: "")
+                Highlightr.shared?.theme = Theme(themeString: """
+                .hljs{display:block;overflow-x:auto;padding:0.5em;background:#F0F0F0}
+                .hljs,
+                .hljs-subst{color:#FF0000}
+                .hljs-comment{color:#FF0000}
+                .hljs-keyword,
+                .hljs-attribute,
+                .hljs-selector-tag,
+                .hljs-meta-keyword,
+                .hljs-doctag,
+                .hljs-name{font-weight:bold}
+                .hljs-type,
+                .hljs-string,
+                .hljs-number,
+                .hljs-selector-id,
+                .hljs-selector-class,
+                .hljs-quote,
+                .hljs-template-tag,
+                .hljs-deletion{color:#880000}
+                .hljs-title,
+                .hljs-section{color:#880000;font-weight:bold}
+                .hljs-regexp,
+                .hljs-symbol,
+                .hljs-variable,
+                .hljs-template-variable,
+                .hljs-link,
+                .hljs-selector-attr,
+                .hljs-selector-pseudo{color:#BC6060}
+                .hljs-literal{color:#78A960}
+                .hljs-built_in,
+                .hljs-bullet,
+                .hljs-code,
+                .hljs-addition{color:#397300}
+                .hljs-meta{color:#1f7199}
+                .hljs-meta-string{color:#4d99bf}
+                .hljs-emphasis{font-style:italic}
+                .hljs-strong{font-weight:bold}
+                """)
             }
             .onChange(of: theme) { newTheme in
-                let theme = colorScheme == .dark ? newTheme.darkModeThemeName : newTheme.lightModeThemeName
-                Highlightr.shared?.setTheme(to: theme)
+//                let theme = colorScheme == .dark ? newTheme.darkModeThemeName : newTheme.lightModeThemeName
+//                Highlightr.shared?.setTheme(to: theme)
             }
             #endif
     }
