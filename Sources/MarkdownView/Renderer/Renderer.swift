@@ -84,9 +84,9 @@ struct Renderer: MarkupVisitor {
             }
             .overlay(alignment: .leading) {
                 configuration.blockQuoteTintColor
-                    .frame(width: 2)
+                    .frame(width: 3)
             }
-            .cornerRadius(2)
+            .cornerRadius(3)
         }
     }
 
