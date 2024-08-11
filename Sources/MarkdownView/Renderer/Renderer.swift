@@ -77,16 +77,16 @@ struct Renderer: MarkupVisitor {
             .padding(.vertical, 8)
             .frame(maxWidth: .infinity, alignment: .leading)
             .font(configuration.fontGroup.blockQuote)
-            .padding(.horizontal, 20)
+            .padding(.horizontal, 8)
             .background {
                 configuration.blockQuoteTintColor
                     .opacity(0.1)
             }
             .overlay(alignment: .leading) {
                 configuration.blockQuoteTintColor
-                    .frame(width: 4)
+                    .frame(width: 3)
             }
-            .cornerRadius(3)
+            .cornerRadius(8)
         }
     }
 
