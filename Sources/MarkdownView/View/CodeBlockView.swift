@@ -89,8 +89,8 @@ struct CodeHighlighterUpdator: ViewModifier {
     func body(content: Content) -> some View {
         content
             #if canImport(Highlightr)
-            .onChange(of: theme) { _ in
-                Highlightr.shared?.theme = theme
+            .onChange(of: theme) { newTheme in
+                Highlightr.shared?.theme = newTheme
             }
             #endif
     }
