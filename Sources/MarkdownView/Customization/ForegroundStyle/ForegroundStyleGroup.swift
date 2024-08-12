@@ -19,6 +19,9 @@ public protocol MarkdownForegroundStyleGroup {
     var h5: H5Style { get }
     var h6: H6Style { get }
     
+    associatedtype BoldStyle: ShapeStyle
+    var bold: BoldStyle { get }
+    
     // Blocks
     associatedtype CodeBlockStyle: ShapeStyle
     associatedtype BlockQuoteStyle: ShapeStyle
@@ -42,6 +45,8 @@ extension MarkdownForegroundStyleGroup {
     public var h4: some ShapeStyle { .foreground }
     public var h5: some ShapeStyle { .foreground }
     public var h6: some ShapeStyle { .foreground }
+    
+    public var bold: some ShapeStyle { .foreground }
     
     // Blocks
     public var codeBlock: some ShapeStyle { .foreground }
