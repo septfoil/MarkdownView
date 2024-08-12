@@ -11,7 +11,7 @@ extension Renderer {
     }
     
     mutating func visitStrong(_ strong: Strong) -> Result {
-        var text = [SwiftUI.Text]()
+        var text = [SwiftUI.AnyView]()
         for child in strong.children {
             text.append(visit(child).text.font(configuration.fontGroup.bold).foregroundStyle(configuration.foregroundStyleGroup.bold))
         }
