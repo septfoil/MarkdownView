@@ -11,13 +11,11 @@ extension Renderer {
     }
     
     mutating func visitStrong(_ strong: Strong) -> Result {
-        var attributedString = AttributedString(stringLiteral: "")
+        var text = [SwiftUI.Text]()
         for child in strong.children {
-            attributedString = attributedString + visit(child)
+            text.append(visit(child).text.font(configuration.fontGroup.bold))
         }
-        attributedString.font = configuration.fontGroup.bold
-        attributedString.foregroundColor = configuration.foregroundStyleGroup.bold
-        return Result(SwiftUI.Text(attributedString))
+        return Result(text)
     }
     
     mutating func visitStrikethrough(_ strikethrough: Strikethrough) -> Result {
