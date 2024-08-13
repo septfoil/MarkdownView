@@ -18,7 +18,9 @@ struct Renderer: MarkupVisitor {
     }
     
     mutating func visitDocument(_ document: Document) -> Result {
+        print(document)
         let contents = contents(of: document)
+        print(contents)
         var paras = [Result]()
         var index = 0
         while index < contents.count {
