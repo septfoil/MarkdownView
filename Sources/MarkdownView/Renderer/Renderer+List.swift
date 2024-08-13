@@ -11,7 +11,6 @@ extension Renderer {
                     contents[index].content
                 }
             }
-            .padding(.vertical, listItem.listDepth == 0 ? configuration.componentSpacing / 2 : 0)
         }
     }
     
