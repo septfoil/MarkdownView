@@ -29,6 +29,7 @@ public extension View {
             case .h4: group._h4 = erasedShapeStyle
             case .h5: group._h5 = erasedShapeStyle
             case .h6: group._h6 = erasedShapeStyle
+            case .bold: group._bold = erasedShapeStyle
             case .blockQuote: group._blockQuote = erasedShapeStyle
             case .codeBlock: group._codeBlock = erasedShapeStyle
             case .tableBody: group._tableBody = erasedShapeStyle
