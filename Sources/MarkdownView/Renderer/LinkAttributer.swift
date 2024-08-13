@@ -54,7 +54,7 @@ struct LinkAttributer: MarkupVisitor {
         var attributedString = attributedString(inlineCode.code, from: inlineCode)
         attributedString.foregroundColor = tint
         attributedString.backgroundColor = tint.opacity(0.1)
-        attributedString.font = font.monospaced()
+        attributedString.font = font
         return attributedString
     }
     
