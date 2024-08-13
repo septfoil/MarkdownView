@@ -64,7 +64,7 @@ extension Renderer {
         }
         // Otherwise, add spacing to the top of the text to make the heading text stand out.
         return Result(
-            text.id(id).padding(.top, configuration.componentSpacing).padding(.bottom, configuration.componentSpacing / 2)foregroundStyle(foregroundStyle)
+            text.id(id).padding(.top, configuration.componentSpacing).padding(.bottom, configuration.componentSpacing / 2).foregroundStyle(foregroundStyle)
         )
     }
 }
