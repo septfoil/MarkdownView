@@ -5,7 +5,7 @@ import SwiftUI
 extension Renderer {
     mutating func visitInlineCode(_ inlineCode: InlineCode) -> Result {
         var attributedString = AttributedString(stringLiteral: inlineCode.code)
-        attributedString.font = configuration.fontGroup.body.monospaced()
+        attributedString.font = configuration.fontGroup.codeBlock
         attributedString.foregroundColor = configuration.inlineCodeTintColor
         attributedString.backgroundColor = configuration.inlineCodeTintColor.opacity(0.1)
         return Result(SwiftUI.Text(attributedString))
