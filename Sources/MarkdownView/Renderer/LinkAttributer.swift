@@ -53,7 +53,6 @@ struct LinkAttributer: MarkupVisitor {
     mutating func visitInlineCode(_ inlineCode: InlineCode) -> Result {
         var attributedString = attributedString(inlineCode.code, from: inlineCode)
         attributedString.foregroundColor = tint
-        attributedString.backgroundColor = tint.opacity(0.1)
         attributedString.font = font
         return attributedString
     }
