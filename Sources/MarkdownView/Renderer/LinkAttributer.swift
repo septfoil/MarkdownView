@@ -4,7 +4,7 @@ import Foundation
 
 struct LinkAttributer: MarkupVisitor {
     var tint: Color
-    var font: Font?
+    var font: Font
     typealias Result = AttributedString
     
     mutating func defaultVisit(_ markup: Markup) -> Result {
@@ -40,17 +40,13 @@ struct LinkAttributer: MarkupVisitor {
     
     mutating func visitStrong(_ strong: Strong) -> Result {
         var attributedString = attributedString(from: strong)
-        if let font = font {
-            attributedString.font = font.bold()
-        }
+        attributedString.font = font.bold()
         return attributedString
     }
     
     mutating func visitEmphasis(_ emphasis: Emphasis) -> Result {
         var attributedString = attributedString(from: emphasis)
-        if let font = font {
-            attributedString.font = font.italic()
-        }
+        attributedString.font = font.italic()
         return attributedString
     }
     
@@ -58,14 +54,13 @@ struct LinkAttributer: MarkupVisitor {
         var attributedString = attributedString(inlineCode.code, from: inlineCode)
         attributedString.foregroundColor = tint
         attributedString.backgroundColor = tint.opacity(0.1)
+        attributedString.font = font.monospaced()
         return attributedString
     }
     
     mutating func visitInlineHTML(_ inlineHTML: InlineHTML) -> Result {
         var attributedString = attributedString(inlineHTML.rawHTML, from: inlineHTML)
-        if let font = font {
-            attributedString.font = font
-        }
+        attributedString.font = font
         return attributedString
     }
 }
