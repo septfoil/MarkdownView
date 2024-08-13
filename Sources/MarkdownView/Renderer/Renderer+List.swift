@@ -11,7 +11,6 @@ extension Renderer {
                     contents[index].content
                 }
             }
-            .padding(.vertical, configuration.componentSpacing)
         }
     }
     
@@ -33,6 +32,7 @@ extension Renderer {
                     }
                 }
             }
+            .padding(.vertical, orderedList.listDepth == 0 ? configuration.componentSpacing : 0)
         }
     }
     
@@ -55,6 +55,8 @@ extension Renderer {
                     }
                 }
             }
+            .padding(.top, unorderedList.listDepth == 0 && unorderedList.indexInParent == 0 ? configuration.componentSpacing : 0)
+            .padding(.bottom, (unorderedList.listDepth == 0 && unorderedList.parent?.childCount == unorderedList.indexInParent + 1) ? configuration.componentSpacing : 0))
         }
     }
 }
