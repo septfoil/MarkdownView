@@ -18,9 +18,7 @@ struct Renderer: MarkupVisitor {
     }
     
     mutating func visitDocument(_ document: Document) -> Result {
-        print(document)
         let contents = contents(of: document)
-        print(contents)
         var paras = [Result]()
         var index = 0
         while index < contents.count {
@@ -47,19 +45,35 @@ struct Renderer: MarkupVisitor {
     }
 
     mutating func visitLink(_ link: Markdown.Link) -> Result {
+        let fontProvider = configuration.fontGroup
         var contents = [Result]()
         var isText = true
+        var linkFont = fontProvider.body
         for child in link.children {
+            if child is Markdown.InlineCode {
+                linkFont = fontProvider.codeBlock
+            }
             let content = visit(child)
             contents.append(content)
             if content.type == .view {
                 isText = false
             }
         }
+        if let heading = link.parent as? Markdown.Heading {
+            switch heading.level {
+            case 1: linkFont = fontProvider.h1
+            case 2: linkFont = fontProvider.h2
+            case 3: linkFont = fontProvider.h3
+            case 4: linkFont = fontProvider.h4
+            case 5: linkFont = fontProvider.h5
+            case 6: linkFont = fontProvider.h6
+            default: linkFont = fontProvider.body
+            }
+        }
         if isText {
             var attributer = LinkAttributer(
                 tint: configuration.inlineCodeTintColor,
-                font: configuration.fontGroup.body
+                font: linkFont
             )
             let link = attributer.visit(link)
             return Result(SwiftUI.Text(link))
