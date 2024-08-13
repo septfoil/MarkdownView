@@ -11,6 +11,7 @@ extension Renderer {
                     contents[index].content
                 }
             }
+            .padding(.vertical, configuration.componentSpacing)
         }
     }
     
@@ -32,7 +33,6 @@ extension Renderer {
                     }
                 }
             }
-            .padding(.vertical, configuration.componentSpacing)
         }
     }
     
@@ -55,7 +55,6 @@ extension Renderer {
                     }
                 }
             }
-            .padding(.vertical, configuration.componentSpacing)
         }
     }
 }
