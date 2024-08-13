@@ -56,7 +56,7 @@ extension Renderer {
                 }
             }
             .padding(.top, unorderedList.listDepth == 0 && unorderedList.indexInParent == 0 ? configuration.componentSpacing : 0)
-            .padding(.bottom, (unorderedList.listDepth == 0 && unorderedList.parent?.childCount == unorderedList.indexInParent + 1) ? configuration.componentSpacing : 0))
+            .padding(.bottom, (unorderedList.listDepth == 0 && unorderedList.parent?.childCount == unorderedList.indexInParent + 1) ? configuration.componentSpacing : 0)
         }
     }
 }
