@@ -6,11 +6,12 @@ extension Renderer {
     mutating func visitListItem(_ listItem: ListItem) -> Result {
         Result {
             let contents = contents(of: listItem)
-            VStack(alignment: .leading, spacing: configuration.componentSpacing) {
+            VStack(alignment: .leading, spacing: configuration.componentSpacing / 2) {
                 ForEach(contents.indices, id: \.self) { index in
                     contents[index].content
                 }
             }
+            .padding(.vertical, listItem.listDepth == 0 ? configuration.componentSpacing / 2 : 0)
         }
     }
     
@@ -22,7 +23,7 @@ extension Renderer {
             let handler = interactiveEditHandler
             let rawText = text
             let configuration = configuration
-            VStack(alignment: .leading, spacing: configuration.componentSpacing) {
+            VStack(alignment: .leading, spacing: configuration.componentSpacing / 2) {
                 ForEach(listItems.indices, id: \.self) { index in
                     let listItem = listItems[index]
                     HStack(alignment: .firstTextBaseline) {
@@ -32,7 +33,7 @@ extension Renderer {
                     }
                 }
             }
-            .padding(.vertical, orderedList.listDepth == 0 ? configuration.componentSpacing : 0)
+            .padding(.vertical, orderedList.listDepth == 0 ? configuration.componentSpacing / 2 : 0)
         }
     }
     
@@ -44,7 +45,7 @@ extension Renderer {
             let handler = interactiveEditHandler
             let rawText = text
             let configuration = configuration
-            VStack(alignment: .leading, spacing: configuration.componentSpacing) {
+            VStack(alignment: .leading, spacing: configuration.componentSpacing / 2) {
                 ForEach(itemContent.indices, id: \.self) { index in
                     let listItem = listItems[index]
                     HStack(alignment: .firstTextBaseline) {
@@ -55,8 +56,7 @@ extension Renderer {
                     }
                 }
             }
-            .padding(.top, unorderedList.listDepth == 0 && unorderedList.indexInParent == 0 ? configuration.componentSpacing : 0)
-            .padding(.bottom, (unorderedList.listDepth == 0 && unorderedList.parent?.childCount == unorderedList.indexInParent + 1) ? configuration.componentSpacing : 0)
+            .padding(.vertical, orderedList.listDepth == 0 ? configuration.componentSpacing / 2 : 0)
         }
     }
 }
