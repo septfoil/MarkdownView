@@ -87,7 +87,7 @@ struct Renderer: MarkupVisitor {
                     .frame(width: 3)
             }
             .cornerRadius(3)
-            .padding(.vertical, blockQuote.quoteDepth == 0 ? configuration.componentSpacing : 0)
+            .padding(.vertical, blockQuote.quoteDepth == 0 ? configuration.componentSpacing / 2: 0)
         }
     }
 

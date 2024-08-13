@@ -35,7 +35,7 @@ extension Renderer {
                 code: code,
                 theme: configuration.codeBlockTheme
             )
-            .padding(.vertical, configuration.componentSpacing)
+            .padding(.vertical, configuration.componentSpacing / 2)
             #endif
         }
     }
