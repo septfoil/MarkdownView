@@ -24,6 +24,7 @@ struct LinkAttributer: MarkupVisitor {
     
     mutating func visitLink(_ link: Markdown.Link) -> Result {
         var attributedString = attributedString(from: link)
+        attributedString.underlineStyle = .single
         if let destination = link.destination {
             attributedString.link = URL(string: destination)
         } else {
